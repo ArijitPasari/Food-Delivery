@@ -1,0 +1,85 @@
+.header {
+    height: 34vw;
+    margin: 30px auto;
+    position: relative;
+}
+
+.header-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Optional: round corners if the design calls for it, matching the original look if any */
+}
+
+.header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    animation: fadeIn 2s;
+}
+
+.header-contents h2 {
+    font-weight: 500;
+    color: white;
+    font-size: max(4.5vw, 22px);
+}
+
+.header-contents p {
+    color: white;
+    font-size: 1vw;
+}
+
+.header-contents button {
+    border: none;
+    color: #747474;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: white;
+    font-size: max(1vw, 13px);
+    border-radius: 50px;
+}
+
+.header-contents button:hover {
+    background-color: #ddf8cf;
+    color: black;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        margin: 10px;
+    }
+
+    .header-contents {
+        max-width: 65%;
+        left: 4vw;
+        bottom: 5%;
+        gap: 2vw;
+    }
+    
+    .header-contents h2 {
+        font-size: 5vw; /* Slightly larger on mobile relative to vw, or stick to max calculations */
+    }
+
+    .header-contents p {
+        font-size: 2vw; /* Readable on mobile */
+        display: none; /* Often header text is hidden on very small screens if it covers the image face, but let's keep it if possible or hide if requested. User said "responsive", usually means readable. */
+    }
+    
+    /* If the text is too small, we might want to hide the paragraph on very small screens */
+    @media (max-width: 480px) {
+        .header-contents p {
+            display: none;
+        }
+        .header-contents h2 {
+            font-size: 6vw;
+        }
+    }
+}
+
